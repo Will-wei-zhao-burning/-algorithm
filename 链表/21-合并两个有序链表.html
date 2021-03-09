@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @version: https://leetcode-cn.com/problems/merge-two-sorted-lists/
+ * @Author: BurNing
+ * @Date: 2021-03-08 15:38:07
+ * @LastEditors: BurNing
+ * @LastEditTime: 2021-03-08 15:38:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(l1, l2) {
+    var current=new ListNode(0);
+    var temp = current;
+    while(l1!=null&&l2!=null){
+        if(l1.val>l2.val){
+            current.next = l2;
+            l2 = l2.next;
+        }
+        else{
+            current.next = l1;
+            l1 = l1.next;
+        }
+        current = current.next;
+    }
+    if(l1==null){
+        current.next = l2;
+    }
+    else{
+        current.next = l1;
+    }
+    return temp.next
+};
+</script>
+</html>

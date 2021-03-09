@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+ * @Author: BurNing
+ * @Date: 2021-03-08 11:21:29
+ * @LastEditors: BurNing
+ * @LastEditTime: 2021-03-08 13:28:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var deleteDuplicates = function (head) {
+        if (head == null || head.next == null) {
+            return head
+        }
+        else {
+            if (head.val == head.next.val) {
+                head = deleteDuplicates(head.next);
+            }
+            else {
+                head.next = deleteDuplicates(head.next);
+            }
+            return head
+        }
+    };
+</script>
+
+</html>

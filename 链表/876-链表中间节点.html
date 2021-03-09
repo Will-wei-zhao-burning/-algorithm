@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: https://leetcode-cn.com/problems/middle-of-the-linked-list/
+ * @Author: BurNing
+ * @Date: 2021-03-08 11:18:54
+ * @LastEditors: BurNing
+ * @LastEditTime: 2021-03-08 14:21:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var middleNode = function (head) {
+        fast = head;
+        slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    };
+</script>
+
+</html>
