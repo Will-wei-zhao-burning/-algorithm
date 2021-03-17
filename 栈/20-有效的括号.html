@@ -1,0 +1,52 @@
+<!--
+ * @Descripttion: 
+ * @version: https://leetcode-cn.com/problems/valid-parentheses/
+ * @Author: BurNing
+ * @Date: 2021-03-17 16:51:47
+ * @LastEditors: BurNing
+ * @LastEditTime: 2021-03-17 18:03:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {string} s
+ * @return {boolean}
+ */
+       //利用栈的思想，js中利用数组的pop方法 来模拟栈；
+        var isValid = function (s) {
+            let str = s.split('');
+            let arr = new Array;
+            const len = str.length;
+            for (i = 0; i < len; i++) {
+                if (str[i] == '{' || str[i] == '[' || str[i] == '(') {
+                    arr.push(str[i]);
+                }
+                else {
+                    const left = arr.pop();
+                    if (left) {
+                        if (left == '{' && str[i] != '}') return false
+                        if (left == '[' && str[i] != ']') return false
+                        if (left == '(' && str[i] != ')') return false
+                    }
+                    else {
+                        return false
+                    }
+                }
+            }
+            return arr.length == 0;
+        };
+
+    </script>
+</body>
+
+</html>
