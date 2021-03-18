@@ -1,0 +1,72 @@
+<!--
+ * @Descripttion: 
+ * @version: https://leetcode-cn.com/problems/min-stack/
+ * @Author: BurNing
+ * @Date: 2021-03-18 15:19:42
+ * @LastEditors: BurNing
+ * @LastEditTime: 2021-03-18 15:20:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /**
+ * initialize your data structure here.
+ */
+    var MinStack = function () {
+        this.arr = new Array();
+        //Infinity 无穷大
+        this.min = [Infinity];
+    };
+
+    /** 
+     * @param {number} x
+     * @return {void}
+     */
+    MinStack.prototype.push = function (x) {
+        this.arr.push(x);
+        this.min.push(Math.min(x, this.min[this.min.length - 1]));
+    };
+
+    /**
+     * @return {void}
+     */
+    MinStack.prototype.pop = function () {
+        this.arr.pop()
+        this.min.pop()
+    };
+
+    /**
+     * @return {number}
+     */
+    MinStack.prototype.top = function () {
+        return this.arr[this.arr.length - 1];
+    }
+    /**
+     * @return {number}
+     */
+    MinStack.prototype.getMin = function () {
+        return this.min[this.min.length - 1];
+    };
+
+    /**
+     * Your MinStack object will be instantiated and called as such:
+     * var obj = new MinStack()
+     * obj.push(x)
+     * obj.pop()
+     * var param_3 = obj.top()
+     * var param_4 = obj.getMin()
+     */
+</script>
+
+</html>
